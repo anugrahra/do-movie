@@ -70,11 +70,11 @@ $('#movie-list').on('click', '.see-detail', function() {
                         <div class="col-md-8">
                             <ul class="list-group">
                                 <li class="list-group-item"><h3>` + movie.Title + `</h3></li>
-                                <li class="list-group-item">Released: ` + movie.Released + `</li>
-                                <li class="list-group-item">Genre: ` + movie.Genre + `</li>
-                                <li class="list-group-item">Director: ` + movie.Director + `</li>
-                                <li class="list-group-item">Actors: ` + movie.Actors + `</li>
-                                <li class="list-group-item">IMDB Rating: ` + movie.Ratings + `</li>
+                                <li class="list-group-item"><b>Released:</b> ` + movie.Released + `</li>
+                                <li class="list-group-item"><b>Genre:</b> ` + movie.Genre + `</li>
+                                <li class="list-group-item"><b>Director:</b> ` + movie.Director + `</li>
+                                <li class="list-group-item"><b>Actors:</b> ` + movie.Actors + `</li>
+                                <li class="list-group-item"><b>IMDB Rating:</b> ` + movie.Ratings[0].Value + `</li>
                             </ul>
                         </div>
                     </div>
