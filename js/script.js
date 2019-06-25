@@ -61,6 +61,7 @@ $('#movie-list').on('click', '.see-detail', function() {
         },
         success : function (movie) {
             if (movie.Response === "True") {
+                $('.modal-title').html(movie.Title + '<span style="color:grey">&nbsp;(' + movie.Year + ')</span>')
                 $('.modal-body').html(`
                 <div class="container-fluid">
                     <div class="row">
@@ -69,12 +70,16 @@ $('#movie-list').on('click', '.see-detail', function() {
                         </div>
                         <div class="col-md-8">
                             <ul class="list-group">
-                                <li class="list-group-item"><h3>` + movie.Title + `</h3></li>
+                                <li class="list-group-item">
+                                    <p>` + movie.Plot + `</p>
+                                </li>
                                 <li class="list-group-item"><b>Released:</b> ` + movie.Released + `</li>
                                 <li class="list-group-item"><b>Genre:</b> ` + movie.Genre + `</li>
+                                <li class="list-group-item"><b>IMDB Rating:</b> ` + movie.Ratings[0].Value + `</li>
+                                <li class="list-group-item"><b>Duration:</b> ` + movie.Runtime + `</li>
                                 <li class="list-group-item"><b>Director:</b> ` + movie.Director + `</li>
                                 <li class="list-group-item"><b>Actors:</b> ` + movie.Actors + `</li>
-                                <li class="list-group-item"><b>IMDB Rating:</b> ` + movie.Ratings[0].Value + `</li>
+                                <li class="list-group-item"><b>Awards:</b> ` + movie.Awards + `</li>
                             </ul>
                         </div>
                     </div>
