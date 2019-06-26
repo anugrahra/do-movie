@@ -16,10 +16,9 @@ function searchMovie() {
                     $('#movie-list').append(`
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img src="`+ data.Poster + `" class="card-img-top" alt="...">
+                            <img src="`+ data.Poster + `" class="card-img-top img-fluid" alt="poster of ` + data.Title + `">
                             <div class="card-body">
-                                <h5 class="card-title">`+ data.Title + `</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">`+ data.Year + `</h6>
+                                <h5 class="card-title">`+ data.Title + `<span class="text-muted">&nbsp;(` + data.Year + `)</span></h5>
                                 <a href="#" class="card-link see-detail" data-toggle="modal" data-target="#exampleModal" data-id="`+ data.imdbID +`">See detail</a>
                             </div>
                         </div>
@@ -61,7 +60,7 @@ $('#movie-list').on('click', '.see-detail', function() {
         },
         success : function (movie) {
             if (movie.Response === "True") {
-                $('.modal-title').html(movie.Title + '<span style="color:grey">&nbsp;(' + movie.Year + ')</span>')
+                $('.modal-title').html(movie.Title)
                 $('.modal-body').html(`
                 <div class="container-fluid">
                     <div class="row">
@@ -80,6 +79,7 @@ $('#movie-list').on('click', '.see-detail', function() {
                                 <li class="list-group-item"><b>Director:</b> ` + movie.Director + `</li>
                                 <li class="list-group-item"><b>Actors:</b> ` + movie.Actors + `</li>
                                 <li class="list-group-item"><b>Awards:</b> ` + movie.Awards + `</li>
+                                <li class="list-group-item"><a class="btn btn-primary" href="https://www.imdb.com/title/` + movie.imdbID + `/" target="_blank">Visit IMDB</a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,4 +88,8 @@ $('#movie-list').on('click', '.see-detail', function() {
             }
         }
     })
+})
+
+$('#about').on('click', function () {
+    
 })
